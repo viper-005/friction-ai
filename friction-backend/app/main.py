@@ -53,11 +53,30 @@ def ingest_event(req: EventReq):
         event_type = "exit"
 
     allowed = {
-        "page_view", "search", "product_view", "compare_products",
-        "add_to_cart", "remove_from_cart", "view_cart", "checkout_start",
-        "delivery_check", "shipping_shown", "coupon_failed",
-        "payment_attempt", "payment_failed", "order_placed",
-        "support_ticket", "review_negative", "exit",
+       "page_view",
+       "search",
+       "product_view",
+       "compare_products",
+       "add_to_cart",
+       "remove_from_cart",
+       "view_cart",
+       "checkout_start",
+       "delivery_check",
+       "shipping_shown",
+       "coupon_failed",
+
+       # New friction events
+       "login_failed",
+       "otp_failed",
+        "inventory_unavailable",
+
+       "payment_attempt",
+       "payment_failed",
+       "order_placed",
+       "support_ticket",
+       "review_negative",
+       "exit",
+       "session_exit",
     }
     if event_type not in allowed:
         raise HTTPException(400, f"unsupported event_type: {event_type}")
@@ -127,6 +146,27 @@ def summary():
     types = Counter(f["type"] for a in an for f in a["frictions"])
     abandoned = [a for a in an if a["outcome"] == "abandoned"]
     ev_types = Counter(e["event_type"] for evs in STATE["sessions"].values() for e in evs)
+
+    # The legacy pipeline/friction objects were built around the original
+    # five friction categories. The live demo also accepts the three new
+    # event types, so make those categories visible in the dashboard summary
+    # directly from the ingested session events.
+    demo_friction_events = {
+        "login_authentication": {"login_failed", "otp_failed"},
+        "inventory_unavailable": {"inventory_unavailable"},
+        "coupon_discount_failure": {"coupon_failed"},
+    }
+
+    for friction_type, event_names in demo_friction_events.items():
+        affected_sessions = sum(
+            any(e["event_type"] in event_names for e in evs)
+            for evs in STATE["sessions"].values()
+        )
+        if affected_sessions:
+            # Only add the live-event-derived category when the legacy
+            # pipeline has not already produced it.
+            types.setdefault(friction_type, affected_sessions)
+
     funnel = [dict(stage=s, count=len({e["session_id"] for evs in STATE["sessions"].values()
                                        for e in evs if e["event_type"] == k}))
               for s, k in [("Viewed product", "product_view"), ("Added to cart", "add_to_cart"),

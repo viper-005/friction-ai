@@ -92,24 +92,6 @@ PLAYBOOK = {
         "channel": "Phone / WhatsApp", "owner": "Customer Support", "urgency": "HIGH",
         "message": "We're sorry your order is delayed. Here's a live update and a Rs.100 credit.",
     },
-    "LOGIN_AUTHENTICATION": {
-        "label": "Login / authentication friction",
-        "action": "Offer OTP resend, account recovery and guest checkout; reduce repeated verification failures.",
-        "channel": "In-app / SMS / Email", "owner": "Identity / Product", "urgency": "HIGH",
-        "message": "Having trouble signing in? Resend your OTP or continue securely as a guest.",
-    },
-    "INVENTORY_UNAVAILABLE": {
-        "label": "Inventory / out-of-stock friction",
-        "action": "Notify the customer when stock returns and offer similar in-stock alternatives.",
-        "channel": "Push / Email", "owner": "Inventory / Catalog", "urgency": "HIGH",
-        "message": "That item just went out of stock. We'll notify you when it's available and show similar options now.",
-    },
-    "COUPON_DISCOUNT_FAILURE": {
-        "label": "Coupon / discount friction",
-        "action": "Replace the failed coupon with an eligible offer and show the final price clearly before payment.",
-        "channel": "In-app / Email", "owner": "Marketing / Pricing", "urgency": "MEDIUM",
-        "message": "That coupon didn't apply. Here's an eligible offer for your saved cart.",
-    },
     "NONE": {
         "label": "No significant friction",
         "action": "No action needed.", "channel": "-", "owner": "-", "urgency": "NONE", "message": "",
@@ -127,9 +109,6 @@ KEYWORDS = {
     "POOR_RECOMMENDATIONS": ["recommend", "irrelevant", "can't find", "options", "similar"],
     "CHECKOUT_COMPLEXITY": ["form", "address", "signup", "login", "too many steps", "complicated"],
     "POST_PURCHASE_ISSUE": ["refund", "delayed order", "not received", "damaged", "support", "return"],
-    "LOGIN_AUTHENTICATION": ["login", "log in", "otp", "verification", "sign in", "password"],
-    "INVENTORY_UNAVAILABLE": ["out of stock", "out-of-stock", "unavailable", "sold out", "stock"],
-    "COUPON_DISCOUNT_FAILURE": ["coupon", "discount", "promo", "promo code", "offer code"],
 }
 
 # Short theme names used in the structured feedback result
@@ -137,9 +116,6 @@ THEME_NAMES = {
     "PAYMENT_FAILURE": "payment", "DELIVERY_UNCERTAINTY": "delivery", "UNCLEAR_PRODUCT_INFO": "product_info",
     "PRICE_SHOCK": "price", "POOR_RECOMMENDATIONS": "recommendations", "CHECKOUT_COMPLEXITY": "checkout",
     "POST_PURCHASE_ISSUE": "post_purchase",
-    "LOGIN_AUTHENTICATION": "authentication",
-    "INVENTORY_UNAVAILABLE": "inventory",
-    "COUPON_DISCOUNT_FAILURE": "coupon",
 }
 
 NEGATIVE_WORDS = ["failed", "failing", "declined", "error", "problem", "issue", "not sure", "unclear",
@@ -156,8 +132,7 @@ KNOWN_EVENT_TYPES = {
     "page_view", "search", "product_view", "compare", "review_read", "size_chart_view", "add_to_cart",
     "remove_from_cart", "view_cart", "delivery_check", "shipping_cost_shown", "coupon_failed",
     "checkout_start", "form_error", "payment_attempt", "payment_failed", "purchase", "support_chat",
-    "support_ticket", "order_delayed", "login_failed", "otp_failed",
-    "inventory_unavailable", "session_exit",
+    "support_ticket", "order_delayed", "session_exit",
 }
 
 # Which journey stage does an event belong to? (delivery_check / coupon_failed depend on context)
@@ -169,18 +144,14 @@ STAGE_OF_EVENT = {
     "checkout_start": "CHECKOUT", "form_error": "CHECKOUT", "shipping_cost_shown": "CHECKOUT",
     "payment_attempt": "PAYMENT", "payment_failed": "PAYMENT",
     "purchase": "POST_PURCHASE", "order_delayed": "POST_PURCHASE",
-    "login_failed": "CHECKOUT", "otp_failed": "CHECKOUT",
-    "inventory_unavailable": "CART",
     "support_chat": "SUPPORT", "support_ticket": "SUPPORT",
 }
 
 # If the LAST friction event before exit is this event, it points to this cause
 EVENT_TO_CAUSE = {
-    "payment_failed": "PAYMENT_FAILURE", "coupon_failed": "COUPON_DISCOUNT_FAILURE", "shipping_cost_shown": "PRICE_SHOCK",
+    "payment_failed": "PAYMENT_FAILURE", "coupon_failed": "PRICE_SHOCK", "shipping_cost_shown": "PRICE_SHOCK",
     "remove_from_cart": "PRICE_SHOCK", "form_error": "CHECKOUT_COMPLEXITY",
     "delivery_check": "DELIVERY_UNCERTAINTY", "order_delayed": "POST_PURCHASE_ISSUE",
-    "login_failed": "LOGIN_AUTHENTICATION", "otp_failed": "LOGIN_AUTHENTICATION",
-    "inventory_unavailable": "INVENTORY_UNAVAILABLE",
 }
 
 MIN_CAUSE_SCORE = 0.25      # below this a cause is ignored
@@ -189,8 +160,7 @@ NEAR_EXIT_SECONDS = 60      # "left right after friction" window
 SLOW_DELIVERY_DAYS = 5      # delivery estimate at/above this counts as slow
 ABANDONED_STATUSES = ("CART_ABANDONED", "BROWSE_DROPOFF")
 # Order used only to break exact ties between causes
-CAUSE_PRIORITY = ["PAYMENT_FAILURE", "INVENTORY_UNAVAILABLE", "LOGIN_AUTHENTICATION",
-                  "COUPON_DISCOUNT_FAILURE", "POST_PURCHASE_ISSUE", "DELIVERY_UNCERTAINTY", "PRICE_SHOCK",
+CAUSE_PRIORITY = ["PAYMENT_FAILURE", "POST_PURCHASE_ISSUE", "DELIVERY_UNCERTAINTY", "PRICE_SHOCK",
                   "CHECKOUT_COMPLEXITY", "UNCLEAR_PRODUCT_INFO", "POOR_RECOMMENDATIONS"]
 
 CONFIDENCE_NOTE = ("Rule-based heuristic score built from hand-written rules. It is NOT a statistically "
@@ -497,10 +467,7 @@ def describe_friction(event: dict) -> Optional[str]:
     """Human text if this event is a friction signal, else None."""
     t, meta = event["type"], event["meta"]
     if t == "payment_failed": return "Payment failed"
-    if t == "coupon_failed": return "Coupon / discount failed"
-    if t == "login_failed": return "Login failed"
-    if t == "otp_failed": return "OTP / verification failed"
-    if t == "inventory_unavailable": return "Item became unavailable"
+    if t == "coupon_failed": return "Coupon failed"
     if t == "form_error": return "Form / validation error"
     if t == "order_delayed": return "Order delayed"
     if t == "remove_from_cart": return "Item removed from cart"
@@ -598,9 +565,6 @@ def engineer_features(clean: Dict[str, Any], feedback: Optional[Dict[str, Any]] 
         "delivery_days": delivery_days_list[-1] if delivery_days_list else 0,   # 0 = not shown
         "shipping_cost": max(ship_costs) if ship_costs else 0,
         "coupon_failures": n["coupon_failed"],
-        "login_failures": n["login_failed"],
-        "otp_failures": n["otp_failed"],
-        "inventory_unavailable": n["inventory_unavailable"],
         # checkout
         "checkout_started": 1 if checkout_ts is not None else 0,
         "form_errors": n["form_error"],
@@ -807,51 +771,6 @@ def _checkout(clean, f, j, fb):
     return s.result()
 
 
-def _login_auth(clean, f, j, fb):
-    s = Signals(clean["events"])
-    total = f["login_failures"] + f["otp_failures"]
-    if f["login_failures"]:
-        s.add(0.35 + 0.10 * min(f["login_failures"] - 1, 2),
-              f"{f['login_failures']} login failure(s)", "HIGH", "login_failed")
-    if f["otp_failures"]:
-        s.add(0.35 + 0.10 * min(f["otp_failures"] - 1, 2),
-              f"{f['otp_failures']} OTP / verification failure(s)", "HIGH", "otp_failed")
-    if total >= 2:
-        s.add(0.15, "Repeated authentication failures", "HIGH")
-    if j["ended_after_friction"] and j["cause_of_last_friction"] == "LOGIN_AUTHENTICATION":
-        s.add(0.20, "Session ended after authentication failure", "HIGH")
-    if total and not f["purchase_completed"]:
-        s.add(0.10, "Customer did not complete a purchase after authentication friction", "MEDIUM")
-    return s.result()
-
-
-def _inventory(clean, f, j, fb):
-    s = Signals(clean["events"])
-    if f["inventory_unavailable"]:
-        s.add(0.45, f"{f['inventory_unavailable']} inventory / availability failure(s)", "HIGH", "inventory_unavailable")
-    if f["inventory_unavailable"] and f["cart_additions"]:
-        s.add(0.20, "Item became unavailable after cart activity", "HIGH")
-    if j["ended_after_friction"] and j["cause_of_last_friction"] == "INVENTORY_UNAVAILABLE":
-        s.add(0.20, "Customer abandoned after item became unavailable", "HIGH")
-    if f["inventory_unavailable"] and not f["purchase_completed"]:
-        s.add(0.10, "No purchase completed after inventory friction", "MEDIUM")
-    return s.result()
-
-
-def _coupon(clean, f, j, fb):
-    s = Signals(clean["events"])
-    if f["coupon_failures"]:
-        s.add(0.45 + 0.10 * min(f["coupon_failures"] - 1, 2),
-              f"{f['coupon_failures']} coupon / discount failure(s)", "HIGH", "coupon_failed")
-    if f["coupon_failures"] and f["checkout_started"]:
-        s.add(0.15, "Coupon failed during the checkout journey", "HIGH")
-    if j["ended_after_friction"] and j["cause_of_last_friction"] == "COUPON_DISCOUNT_FAILURE":
-        s.add(0.20, "Customer exited after coupon / discount failure", "HIGH")
-    if f["coupon_failures"] and not f["purchase_completed"]:
-        s.add(0.10, "No purchase completed after coupon friction", "MEDIUM")
-    return s.result()
-
-
 def _post(clean, f, j, fb):
     s = Signals(clean["events"])
     if f["order_delays"]:
@@ -867,9 +786,7 @@ def _post(clean, f, j, fb):
 
 DETECTORS = {
     "PAYMENT_FAILURE": _payment, "DELIVERY_UNCERTAINTY": _delivery, "UNCLEAR_PRODUCT_INFO": _product_info,
-    "PRICE_SHOCK": _price, "COUPON_DISCOUNT_FAILURE": _coupon,
-    "POOR_RECOMMENDATIONS": _reco, "CHECKOUT_COMPLEXITY": _checkout,
-    "LOGIN_AUTHENTICATION": _login_auth, "INVENTORY_UNAVAILABLE": _inventory,
+    "PRICE_SHOCK": _price, "POOR_RECOMMENDATIONS": _reco, "CHECKOUT_COMPLEXITY": _checkout,
     "POST_PURCHASE_ISSUE": _post,
 }
 
@@ -1077,21 +994,6 @@ def build_recommendation(cause: str, clean, f, j, fb, status: str) -> Dict[str, 
             rec["action"] = "Send a resume-checkout link and offer guest checkout"
             reason = "Customer started checkout but never reached payment"
         extra = ["Resume checkout", "Guest checkout", "Autofill", "Reduce form fields"]
-    elif cause == "LOGIN_AUTHENTICATION":
-        reason = f"{f['login_failures']} login failure(s) and {f['otp_failures']} OTP / verification failure(s)"
-        rec["action"] = "Offer OTP resend, account recovery and guest checkout"
-        rec["message"] = "Having trouble signing in? Resend your OTP or continue securely as a guest."
-        extra = ["Resend OTP", "Account recovery", "Guest checkout"]
-    elif cause == "INVENTORY_UNAVAILABLE":
-        reason = f"{f['inventory_unavailable']} inventory availability event(s) during the journey"
-        rec["action"] = "Notify the customer when stock returns and offer similar in-stock alternatives"
-        rec["message"] = "That item is currently unavailable. We'll notify you when it's back and show similar options now."
-        extra = ["Back-in-stock alert", "Show similar in-stock products"]
-    elif cause == "COUPON_DISCOUNT_FAILURE":
-        reason = f"{f['coupon_failures']} coupon / discount failure(s) during the journey"
-        rec["action"] = "Replace the failed coupon with an eligible offer and show the final price clearly"
-        rec["message"] = "That coupon didn't apply. Here's an eligible offer for your saved cart."
-        extra = ["Show eligible coupons", "Apply a valid targeted offer", "Show final price before payment"]
     elif cause == "POST_PURCHASE_ISSUE":
         contacts = f["support_chats"] + f["support_tickets"]
         rec["action"] = "Give priority support: proactive order status and refund/return assistance"
@@ -1115,9 +1017,6 @@ WORKFLOW_TRIGGERS = {
     "PAYMENT_FAILURE": "send_payment_recovery_message", "DELIVERY_UNCERTAINTY": "send_delivery_reassurance",
     "UNCLEAR_PRODUCT_INFO": "offer_product_help", "PRICE_SHOCK": "send_targeted_offer",
     "POOR_RECOMMENDATIONS": "send_personalised_alternatives", "CHECKOUT_COMPLEXITY": "send_resume_checkout_link",
-    "LOGIN_AUTHENTICATION": "send_account_recovery_help",
-    "INVENTORY_UNAVAILABLE": "send_back_in_stock_alert",
-    "COUPON_DISCOUNT_FAILURE": "send_valid_coupon_offer",
     "POST_PURCHASE_ISSUE": "create_priority_support_case",
 }
 
@@ -1429,10 +1328,6 @@ _EVENT_MAP = {
     "order_placed": "purchase",
     "exit": "session_exit",
     "cart_abandoned": "session_exit",
-    "login_failed": "login_failed",
-    "otp_failed": "otp_failed",
-    "inventory_unavailable": "inventory_unavailable",
-    "coupon_failed": "coupon_failed",
 }
 
 def analyze(analysis: dict, events: list[dict]) -> dict:
@@ -1474,9 +1369,6 @@ def analyze(analysis: dict, events: list[dict]) -> dict:
         "PRICE_SHOCK": "price_shock",
         "POOR_RECOMMENDATIONS": "product_info_gap",
         "CHECKOUT_COMPLEXITY": "checkout_complexity",
-        "LOGIN_AUTHENTICATION": "login_authentication",
-        "INVENTORY_UNAVAILABLE": "inventory_unavailable",
-        "COUPON_DISCOUNT_FAILURE": "coupon_discount_failure",
         "POST_PURCHASE_ISSUE": "post_purchase_issue",
         "NONE": None,
     }

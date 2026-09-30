@@ -11,11 +11,6 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import "../dashboard.css";
-import {
-  simulateLoginFriction,
-  simulateInventoryFriction,
-  simulateCouponFriction,
-} from "../services/tracker";
 
 const API = "http://localhost:8000";
 
@@ -44,8 +39,6 @@ function Dashboard() {
   const [summary, setSummary] = useState(fallbackSummary);
   const [customers, setCustomers] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [demoRunning, setDemoRunning] = useState(false);
-  const [demoMessage, setDemoMessage] = useState("");
 
   const loadData = async () => {
     try {
@@ -69,34 +62,6 @@ function Dashboard() {
     }
   };
 
-  const runFrictionDemo = async (type) => {
-    if (demoRunning) return;
-
-    setDemoRunning(true);
-    setDemoMessage("");
-
-    try {
-      if (type === "login") {
-        await simulateLoginFriction();
-        setDemoMessage("🔐 Login / Authentication friction sent successfully.");
-      } else if (type === "inventory") {
-        await simulateInventoryFriction();
-        setDemoMessage("📦 Out-of-Stock / Inventory friction sent successfully.");
-      } else if (type === "coupon") {
-        await simulateCouponFriction();
-        setDemoMessage("🎟️ Coupon / Discount friction sent successfully.");
-      }
-
-      // Give the backend a moment to process the last event, then refresh.
-      setTimeout(loadData, 400);
-    } catch (error) {
-      console.error("Friction demo failed:", error);
-      setDemoMessage("❌ Demo event failed. Check the backend terminal.");
-    } finally {
-      setDemoRunning(false);
-    }
-  };
-
   useEffect(() => {
     loadData();
   }, []);
@@ -107,9 +72,6 @@ function Dashboard() {
     product_info_gap: "Product Information",
     price_shock: "Price Shock",
     post_purchase_issue: "Post-Purchase",
-    login_authentication: "Login / Authentication",
-    inventory_unavailable: "Out of Stock / Inventory",
-    coupon_discount_failure: "Coupon / Discount",
   };
 
   const frictionEntries = Object.entries(
@@ -153,94 +115,6 @@ function Dashboard() {
         <span className="status-divider" />
         Behavioral analysis running
       </div>
-
-      {/* FRICTION DEMO */}
-
-      <section
-        className="dashboard-card"
-        style={{
-          marginBottom: "24px",
-          border: "1px solid rgba(99, 102, 241, 0.25)",
-        }}
-      >
-        <div className="card-header">
-          <div>
-            <span className="card-label">LIVE DEMO</span>
-            <h2>Simulate Customer Friction</h2>
-          </div>
-          <Brain size={22} className="cyan-icon" />
-        </div>
-
-        <p style={{ margin: "0 0 16px", opacity: 0.75 }}>
-          Trigger realistic customer journeys and send the events directly
-          to the FrictionAI backend.
-        </p>
-
-        <div
-          style={{
-            display: "flex",
-            gap: "12px",
-            flexWrap: "wrap",
-          }}
-        >
-          <button
-            onClick={() => runFrictionDemo("login")}
-            disabled={demoRunning}
-            style={{
-              padding: "11px 16px",
-              borderRadius: "10px",
-              border: "1px solid rgba(255,255,255,0.12)",
-              cursor: demoRunning ? "not-allowed" : "pointer",
-              opacity: demoRunning ? 0.6 : 1,
-              fontWeight: 600,
-            }}
-          >
-            🔐 Simulate Login Friction
-          </button>
-
-          <button
-            onClick={() => runFrictionDemo("inventory")}
-            disabled={demoRunning}
-            style={{
-              padding: "11px 16px",
-              borderRadius: "10px",
-              border: "1px solid rgba(255,255,255,0.12)",
-              cursor: demoRunning ? "not-allowed" : "pointer",
-              opacity: demoRunning ? 0.6 : 1,
-              fontWeight: 600,
-            }}
-          >
-            📦 Simulate Out-of-Stock
-          </button>
-
-          <button
-            onClick={() => runFrictionDemo("coupon")}
-            disabled={demoRunning}
-            style={{
-              padding: "11px 16px",
-              borderRadius: "10px",
-              border: "1px solid rgba(255,255,255,0.12)",
-              cursor: demoRunning ? "not-allowed" : "pointer",
-              opacity: demoRunning ? 0.6 : 1,
-              fontWeight: 600,
-            }}
-          >
-            🎟️ Simulate Coupon Failure
-          </button>
-        </div>
-
-        {demoMessage && (
-          <div
-            style={{
-              marginTop: "14px",
-              fontSize: "14px",
-              fontWeight: 600,
-            }}
-          >
-            {demoMessage}
-          </div>
-        )}
-      </section>
 
       {/* STATS */}
 
