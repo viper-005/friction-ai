@@ -1,0 +1,43 @@
+[
+  {
+    "customer_id": "DEMO-CUSTOMER-001",
+    "session_id": "S0063",
+    "event_type": "product_view",
+    "timestamp": "2026-09-30T10:00:00Z",
+    "metadata": {
+      "product_id": "P001",
+      "product_name": "Demo Product"
+    }
+  },
+  {
+    "customer_id": "DEMO-CUSTOMER-001",
+    "session_id": "S0063",
+    "event_type": "add_to_cart",
+    "timestamp": "2026-09-30T10:02:00Z",
+    "metadata": {
+      "product_id": "P001",
+      "quantity": 1
+    }
+  },
+  {
+    "customer_id": "DEMO-CUSTOMER-001",
+    "session_id": "S0063",
+    "event_type": "checkout_start",
+    "timestamp": "2026-09-30T10:05:00Z",
+    "metadata": {
+      "amount": 2499
+    }
+  },
+  {
+    "customer_id": "DEMO-CUSTOMER-001",
+    "session_id": "S0063",
+    "event_type": "payment_failed",
+    "timestamp": "2026-09-30T10:06:00Z",
+    "metadata": {
+      "attempt": 1,
+      "amount": 2499,
+      "payment_method": "UPI",
+      "reason": "bank_timeout"
+    }
+  }
+]
