@@ -1,0 +1,361 @@
+customer_id,timestamp,event_type,metadata
+cust_031,2026-09-28T11:01:00,product_view,"{""product_id"": ""P4""}"
+cust_031,2026-09-28T11:01:45,compare_products,"{""product_id"": ""P5""}"
+cust_031,2026-09-28T11:02:44,product_view,"{""product_id"": ""P6""}"
+cust_031,2026-09-28T11:03:21,compare_products,"{""product_id"": ""P4""}"
+cust_031,2026-09-28T11:03:58,product_view,"{""product_id"": ""P5""}"
+cust_031,2026-09-28T11:04:36,exit,
+cust_036,2026-09-28T11:09:00,product_view,"{""product_id"": ""P8""}"
+cust_036,2026-09-28T11:09:52,add_to_cart,"{""product_id"": ""P8"", ""cart_value"": 1200}"
+cust_036,2026-09-28T11:10:36,checkout_start,
+cust_036,2026-09-28T11:11:32,payment_attempt,"{""method"": ""card""}"
+cust_036,2026-09-28T11:11:56,order_placed,"{""order_id"": ""O2""}"
+cust_003,2026-09-28T13:52:00,product_view,"{""product_id"": ""P4""}"
+cust_003,2026-09-28T13:52:29,product_view,"{""product_id"": ""P5""}"
+cust_003,2026-09-28T13:53:21,product_view,"{""product_id"": ""P6""}"
+cust_003,2026-09-28T13:54:12,product_view,"{""product_id"": ""P4""}"
+cust_003,2026-09-28T13:54:30,product_view,"{""product_id"": ""P5""}"
+cust_003,2026-09-28T13:54:47,exit,
+cust_010,2026-09-28T14:07:00,add_to_cart,"{""product_id"": ""P7"", ""cart_value"": 1999}"
+cust_010,2026-09-28T14:07:47,order_placed,"{""order_id"": ""O1""}"
+cust_043,2026-09-28T14:28:00,product_view,"{""product_id"": ""P8""}"
+cust_043,2026-09-28T14:28:35,add_to_cart,"{""product_id"": ""P8"", ""cart_value"": 1200}"
+cust_043,2026-09-28T14:29:29,checkout_start,
+cust_043,2026-09-28T14:30:16,payment_attempt,"{""method"": ""card""}"
+cust_043,2026-09-28T14:31:09,order_placed,"{""order_id"": ""O2""}"
+cust_056,2026-09-28T15:38:00,product_view,"{""product_id"": ""P8""}"
+cust_056,2026-09-28T15:38:29,add_to_cart,"{""product_id"": ""P8"", ""cart_value"": 1200}"
+cust_056,2026-09-28T15:38:48,checkout_start,
+cust_056,2026-09-28T15:39:19,payment_attempt,"{""method"": ""card""}"
+cust_056,2026-09-28T15:39:41,order_placed,"{""order_id"": ""O2""}"
+cust_028,2026-09-28T15:44:00,add_to_cart,"{""product_id"": ""P3"", ""cart_value"": 899}"
+cust_028,2026-09-28T15:44:31,checkout_start,
+cust_028,2026-09-28T15:45:19,shipping_shown,"{""shipping_cost"": 149, ""cart_value"": 899}"
+cust_028,2026-09-28T15:45:57,exit,
+cust_052,2026-09-28T16:05:00,product_view,"{""product_id"": ""P8""}"
+cust_052,2026-09-28T16:05:31,add_to_cart,"{""product_id"": ""P8"", ""cart_value"": 1200}"
+cust_052,2026-09-28T16:06:03,checkout_start,
+cust_052,2026-09-28T16:06:20,payment_attempt,"{""method"": ""card""}"
+cust_052,2026-09-28T16:06:46,order_placed,"{""order_id"": ""O2""}"
+cust_038,2026-09-28T16:33:00,product_view,"{""product_id"": ""P1""}"
+cust_038,2026-09-28T16:33:23,add_to_cart,"{""product_id"": ""P1"", ""cart_value"": 2499}"
+cust_038,2026-09-28T16:34:05,checkout_start,
+cust_038,2026-09-28T16:34:32,payment_failed,"{""method"": ""UPI"", ""reason"": ""bank_timeout""}"
+cust_038,2026-09-28T16:35:00,payment_failed,"{""method"": ""UPI"", ""reason"": ""bank_timeout""}"
+cust_038,2026-09-28T16:35:16,payment_failed,"{""method"": ""UPI"", ""reason"": ""bank_timeout""}"
+cust_038,2026-09-28T16:35:47,exit,
+cust_005,2026-09-28T17:36:00,product_view,"{""product_id"": ""P8""}"
+cust_005,2026-09-28T17:36:34,add_to_cart,"{""product_id"": ""P8"", ""cart_value"": 1200}"
+cust_005,2026-09-28T17:37:24,checkout_start,
+cust_005,2026-09-28T17:38:22,payment_attempt,"{""method"": ""card""}"
+cust_005,2026-09-28T17:38:48,order_placed,"{""order_id"": ""O2""}"
+cust_047,2026-09-28T17:57:00,add_to_cart,"{""product_id"": ""P3"", ""cart_value"": 899}"
+cust_047,2026-09-28T17:57:24,checkout_start,
+cust_034,2026-09-28T17:58:00,product_view,"{""product_id"": ""P1""}"
+cust_047,2026-09-28T17:58:24,shipping_shown,"{""shipping_cost"": 149, ""cart_value"": 899}"
+cust_034,2026-09-28T17:58:39,add_to_cart,"{""product_id"": ""P1"", ""cart_value"": 2499}"
+cust_047,2026-09-28T17:59:20,exit,
+cust_034,2026-09-28T17:59:39,checkout_start,
+cust_034,2026-09-28T18:00:06,payment_failed,"{""method"": ""UPI"", ""reason"": ""bank_timeout""}"
+cust_034,2026-09-28T18:00:51,payment_failed,"{""method"": ""UPI"", ""reason"": ""bank_timeout""}"
+cust_034,2026-09-28T18:01:17,payment_failed,"{""method"": ""UPI"", ""reason"": ""bank_timeout""}"
+cust_034,2026-09-28T18:01:59,exit,
+cust_040,2026-09-28T18:03:00,product_view,"{""product_id"": ""P4""}"
+cust_040,2026-09-28T18:03:37,product_view,"{""product_id"": ""P5""}"
+cust_040,2026-09-28T18:04:34,product_view,"{""product_id"": ""P6""}"
+cust_040,2026-09-28T18:05:22,compare_products,"{""product_id"": ""P4""}"
+cust_040,2026-09-28T18:06:09,compare_products,"{""product_id"": ""P5""}"
+cust_040,2026-09-28T18:06:33,exit,
+cust_004,2026-09-28T18:18:00,add_to_cart,"{""product_id"": ""P7"", ""cart_value"": 1999}"
+cust_004,2026-09-28T18:18:41,order_placed,"{""order_id"": ""O1""}"
+cust_019,2026-09-28T18:44:00,add_to_cart,"{""product_id"": ""P3"", ""cart_value"": 899}"
+cust_019,2026-09-28T18:44:47,checkout_start,
+cust_019,2026-09-28T18:45:41,shipping_shown,"{""shipping_cost"": 149, ""cart_value"": 899}"
+cust_019,2026-09-28T18:46:37,exit,
+cust_017,2026-09-28T19:14:00,product_view,"{""product_id"": ""P1""}"
+cust_017,2026-09-28T19:14:57,add_to_cart,"{""product_id"": ""P1"", ""cart_value"": 2499}"
+cust_017,2026-09-28T19:15:26,checkout_start,
+cust_017,2026-09-28T19:15:41,payment_failed,"{""method"": ""UPI"", ""reason"": ""bank_timeout""}"
+cust_017,2026-09-28T19:16:27,payment_failed,"{""method"": ""UPI"", ""reason"": ""bank_timeout""}"
+cust_017,2026-09-28T19:17:19,payment_failed,"{""method"": ""UPI"", ""reason"": ""bank_timeout""}"
+cust_017,2026-09-28T19:17:45,exit,
+cust_018,2026-09-28T19:26:00,add_to_cart,"{""product_id"": ""P3"", ""cart_value"": 899}"
+cust_018,2026-09-28T19:26:49,checkout_start,
+cust_018,2026-09-28T19:27:27,shipping_shown,"{""shipping_cost"": 149, ""cart_value"": 899}"
+cust_018,2026-09-28T19:28:21,exit,
+cust_023,2026-09-28T19:34:00,product_view,"{""product_id"": ""P1""}"
+cust_023,2026-09-28T19:34:21,add_to_cart,"{""product_id"": ""P1"", ""cart_value"": 2499}"
+cust_023,2026-09-28T19:34:59,checkout_start,
+cust_023,2026-09-28T19:35:53,payment_failed,"{""method"": ""UPI"", ""reason"": ""bank_timeout""}"
+cust_023,2026-09-28T19:36:09,payment_failed,"{""method"": ""UPI"", ""reason"": ""bank_timeout""}"
+cust_023,2026-09-28T19:36:28,payment_failed,"{""method"": ""UPI"", ""reason"": ""bank_timeout""}"
+cust_023,2026-09-28T19:36:56,exit,
+cust_058,2026-09-28T20:16:00,product_view,"{""product_id"": ""P8""}"
+cust_058,2026-09-28T20:16:18,add_to_cart,"{""product_id"": ""P8"", ""cart_value"": 1200}"
+cust_058,2026-09-28T20:16:44,checkout_start,
+cust_058,2026-09-28T20:17:11,payment_attempt,"{""method"": ""card""}"
+cust_058,2026-09-28T20:17:45,order_placed,"{""order_id"": ""O2""}"
+cust_055,2026-09-28T21:27:00,product_view,"{""product_id"": ""P8""}"
+cust_055,2026-09-28T21:27:19,add_to_cart,"{""product_id"": ""P8"", ""cart_value"": 1200}"
+cust_055,2026-09-28T21:27:51,checkout_start,
+cust_055,2026-09-28T21:28:07,payment_attempt,"{""method"": ""card""}"
+cust_055,2026-09-28T21:29:02,order_placed,"{""order_id"": ""O2""}"
+cust_030,2026-09-28T22:51:00,add_to_cart,"{""product_id"": ""P2"", ""cart_value"": 5999}"
+cust_030,2026-09-28T22:51:30,checkout_start,
+cust_030,2026-09-28T22:52:10,delivery_check,"{""pincode"": ""560001"", ""dwell_seconds"": 45}"
+cust_030,2026-09-28T22:52:39,delivery_check,"{""pincode"": ""560001"", ""dwell_seconds"": 38}"
+cust_030,2026-09-28T22:53:06,exit,
+cust_059,2026-09-28T23:18:00,add_to_cart,"{""product_id"": ""P3"", ""cart_value"": 899}"
+cust_059,2026-09-28T23:18:43,checkout_start,
+cust_059,2026-09-28T23:19:30,shipping_shown,"{""shipping_cost"": 149, ""cart_value"": 899}"
+cust_059,2026-09-28T23:20:28,exit,
+cust_015,2026-09-28T23:49:00,compare_products,"{""product_id"": ""P4""}"
+cust_015,2026-09-28T23:49:30,compare_products,"{""product_id"": ""P5""}"
+cust_015,2026-09-28T23:50:16,compare_products,"{""product_id"": ""P6""}"
+cust_015,2026-09-28T23:50:59,compare_products,"{""product_id"": ""P4""}"
+cust_015,2026-09-28T23:51:31,product_view,"{""product_id"": ""P5""}"
+cust_015,2026-09-28T23:52:13,exit,
+cust_032,2026-09-29T00:30:00,add_to_cart,"{""product_id"": ""P2"", ""cart_value"": 5999}"
+cust_032,2026-09-29T00:30:27,checkout_start,
+cust_032,2026-09-29T00:31:03,delivery_check,"{""pincode"": ""560001"", ""dwell_seconds"": 45}"
+cust_032,2026-09-29T00:31:31,delivery_check,"{""pincode"": ""560001"", ""dwell_seconds"": 38}"
+cust_032,2026-09-29T00:32:16,exit,
+cust_029,2026-09-29T00:34:00,add_to_cart,"{""product_id"": ""P3"", ""cart_value"": 899}"
+cust_029,2026-09-29T00:34:49,checkout_start,
+cust_029,2026-09-29T00:35:36,shipping_shown,"{""shipping_cost"": 149, ""cart_value"": 899}"
+cust_029,2026-09-29T00:36:12,exit,
+cust_039,2026-09-29T01:48:00,add_to_cart,"{""product_id"": ""P3"", ""cart_value"": 899}"
+cust_039,2026-09-29T01:48:52,checkout_start,
+cust_039,2026-09-29T01:49:27,shipping_shown,"{""shipping_cost"": 149, ""cart_value"": 899}"
+cust_039,2026-09-29T01:49:58,exit,
+cust_048,2026-09-29T02:56:00,add_to_cart,"{""product_id"": ""P3"", ""cart_value"": 899}"
+cust_048,2026-09-29T02:56:23,checkout_start,
+cust_048,2026-09-29T02:57:07,shipping_shown,"{""shipping_cost"": 149, ""cart_value"": 899}"
+cust_048,2026-09-29T02:57:36,exit,
+cust_045,2026-09-29T02:59:00,product_view,"{""product_id"": ""P8""}"
+cust_045,2026-09-29T02:59:50,add_to_cart,"{""product_id"": ""P8"", ""cart_value"": 1200}"
+cust_045,2026-09-29T03:00:17,checkout_start,
+cust_045,2026-09-29T03:01:00,payment_attempt,"{""method"": ""card""}"
+cust_045,2026-09-29T03:01:23,order_placed,"{""order_id"": ""O2""}"
+cust_044,2026-09-29T03:28:00,add_to_cart,"{""product_id"": ""P2"", ""cart_value"": 5999}"
+cust_044,2026-09-29T03:28:47,checkout_start,
+cust_044,2026-09-29T03:29:36,delivery_check,"{""pincode"": ""560001"", ""dwell_seconds"": 45}"
+cust_044,2026-09-29T03:30:21,delivery_check,"{""pincode"": ""560001"", ""dwell_seconds"": 38}"
+cust_044,2026-09-29T03:31:08,exit,
+cust_000,2026-09-29T06:09:00,product_view,"{""product_id"": ""P1""}"
+cust_000,2026-09-29T06:09:40,add_to_cart,"{""product_id"": ""P1"", ""cart_value"": 2499}"
+cust_000,2026-09-29T06:10:36,checkout_start,
+cust_000,2026-09-29T06:10:54,payment_failed,"{""method"": ""UPI"", ""reason"": ""bank_timeout""}"
+cust_000,2026-09-29T06:11:13,payment_failed,"{""method"": ""UPI"", ""reason"": ""bank_timeout""}"
+cust_000,2026-09-29T06:12:02,payment_failed,"{""method"": ""UPI"", ""reason"": ""bank_timeout""}"
+cust_000,2026-09-29T06:12:23,exit,
+cust_011,2026-09-29T07:09:00,product_view,"{""product_id"": ""P8""}"
+cust_011,2026-09-29T07:09:46,add_to_cart,"{""product_id"": ""P8"", ""cart_value"": 1200}"
+cust_011,2026-09-29T07:10:27,checkout_start,
+cust_011,2026-09-29T07:10:44,payment_attempt,"{""method"": ""card""}"
+cust_011,2026-09-29T07:11:41,order_placed,"{""order_id"": ""O2""}"
+cust_014,2026-09-29T08:01:00,product_view,"{""product_id"": ""P8""}"
+cust_014,2026-09-29T08:01:44,add_to_cart,"{""product_id"": ""P8"", ""cart_value"": 1200}"
+cust_014,2026-09-29T08:02:21,checkout_start,
+cust_014,2026-09-29T08:02:46,payment_attempt,"{""method"": ""card""}"
+cust_014,2026-09-29T08:03:40,order_placed,"{""order_id"": ""O2""}"
+cust_009,2026-09-29T09:19:00,compare_products,"{""product_id"": ""P4""}"
+cust_009,2026-09-29T09:19:26,product_view,"{""product_id"": ""P5""}"
+cust_009,2026-09-29T09:19:56,compare_products,"{""product_id"": ""P6""}"
+cust_009,2026-09-29T09:20:30,product_view,"{""product_id"": ""P4""}"
+cust_009,2026-09-29T09:21:06,product_view,"{""product_id"": ""P5""}"
+cust_009,2026-09-29T09:21:39,exit,
+cust_035,2026-09-29T11:29:00,add_to_cart,"{""product_id"": ""P3"", ""cart_value"": 899}"
+cust_035,2026-09-29T11:29:40,checkout_start,
+cust_035,2026-09-29T11:30:00,shipping_shown,"{""shipping_cost"": 149, ""cart_value"": 899}"
+cust_035,2026-09-29T11:30:25,exit,
+cust_002,2026-09-29T12:04:00,add_to_cart,"{""product_id"": ""P3"", ""cart_value"": 899}"
+cust_002,2026-09-29T12:04:30,checkout_start,
+cust_002,2026-09-29T12:04:50,shipping_shown,"{""shipping_cost"": 149, ""cart_value"": 899}"
+cust_002,2026-09-29T12:05:40,exit,
+cust_016,2026-09-29T12:22:00,add_to_cart,"{""product_id"": ""P3"", ""cart_value"": 899}"
+cust_016,2026-09-29T12:22:58,checkout_start,
+cust_016,2026-09-29T12:23:37,shipping_shown,"{""shipping_cost"": 149, ""cart_value"": 899}"
+cust_016,2026-09-29T12:24:06,exit,
+cust_008,2026-09-29T13:49:00,add_to_cart,"{""product_id"": ""P3"", ""cart_value"": 899}"
+cust_008,2026-09-29T13:49:35,checkout_start,
+cust_008,2026-09-29T13:50:19,shipping_shown,"{""shipping_cost"": 149, ""cart_value"": 899}"
+cust_008,2026-09-29T13:51:11,exit,
+cust_053,2026-09-29T13:54:00,product_view,"{""product_id"": ""P8""}"
+cust_053,2026-09-29T13:54:58,add_to_cart,"{""product_id"": ""P8"", ""cart_value"": 1200}"
+cust_053,2026-09-29T13:55:29,checkout_start,
+cust_053,2026-09-29T13:56:09,payment_attempt,"{""method"": ""card""}"
+cust_053,2026-09-29T13:56:33,order_placed,"{""order_id"": ""O2""}"
+cust_022,2026-09-29T14:10:00,product_view,"{""product_id"": ""P8""}"
+cust_022,2026-09-29T14:10:22,add_to_cart,"{""product_id"": ""P8"", ""cart_value"": 1200}"
+cust_022,2026-09-29T14:10:58,checkout_start,
+cust_022,2026-09-29T14:11:51,payment_attempt,"{""method"": ""card""}"
+cust_022,2026-09-29T14:12:09,order_placed,"{""order_id"": ""O2""}"
+cust_046,2026-09-29T14:20:00,product_view,"{""product_id"": ""P1""}"
+cust_046,2026-09-29T14:20:19,add_to_cart,"{""product_id"": ""P1"", ""cart_value"": 2499}"
+cust_046,2026-09-29T14:21:16,checkout_start,
+cust_046,2026-09-29T14:21:46,payment_failed,"{""method"": ""UPI"", ""reason"": ""bank_timeout""}"
+cust_046,2026-09-29T14:22:28,payment_failed,"{""method"": ""UPI"", ""reason"": ""bank_timeout""}"
+cust_046,2026-09-29T14:22:47,payment_failed,"{""method"": ""UPI"", ""reason"": ""bank_timeout""}"
+cust_046,2026-09-29T14:23:15,exit,
+cust_041,2026-09-29T14:49:00,compare_products,"{""product_id"": ""P4""}"
+cust_041,2026-09-29T14:49:15,product_view,"{""product_id"": ""P5""}"
+cust_041,2026-09-29T14:49:39,compare_products,"{""product_id"": ""P6""}"
+cust_041,2026-09-29T14:50:24,product_view,"{""product_id"": ""P4""}"
+cust_041,2026-09-29T14:50:46,product_view,"{""product_id"": ""P5""}"
+cust_041,2026-09-29T14:51:21,exit,
+cust_013,2026-09-29T15:04:00,product_view,"{""product_id"": ""P4""}"
+cust_013,2026-09-29T15:04:32,compare_products,"{""product_id"": ""P5""}"
+cust_013,2026-09-29T15:05:29,compare_products,"{""product_id"": ""P6""}"
+cust_013,2026-09-29T15:06:28,compare_products,"{""product_id"": ""P4""}"
+cust_013,2026-09-29T15:07:19,product_view,"{""product_id"": ""P5""}"
+cust_013,2026-09-29T15:08:02,exit,
+cust_020,2026-09-29T15:57:00,product_view,"{""product_id"": ""P8""}"
+cust_020,2026-09-29T15:57:58,add_to_cart,"{""product_id"": ""P8"", ""cart_value"": 1200}"
+cust_020,2026-09-29T15:58:48,checkout_start,
+cust_020,2026-09-29T15:59:28,payment_attempt,"{""method"": ""card""}"
+cust_020,2026-09-29T16:00:08,order_placed,"{""order_id"": ""O2""}"
+cust_021,2026-09-29T16:40:00,add_to_cart,"{""product_id"": ""P3"", ""cart_value"": 899}"
+cust_021,2026-09-29T16:40:40,checkout_start,
+cust_021,2026-09-29T16:40:58,shipping_shown,"{""shipping_cost"": 149, ""cart_value"": 899}"
+cust_021,2026-09-29T16:41:25,exit,
+cust_037,2026-09-29T16:42:00,product_view,"{""product_id"": ""P8""}"
+cust_037,2026-09-29T16:42:37,add_to_cart,"{""product_id"": ""P8"", ""cart_value"": 1200}"
+cust_037,2026-09-29T16:43:01,checkout_start,
+cust_037,2026-09-29T16:43:51,payment_attempt,"{""method"": ""card""}"
+cust_037,2026-09-29T16:44:41,order_placed,"{""order_id"": ""O2""}"
+cust_026,2026-09-29T16:53:00,product_view,"{""product_id"": ""P8""}"
+cust_026,2026-09-29T16:53:59,add_to_cart,"{""product_id"": ""P8"", ""cart_value"": 1200}"
+cust_026,2026-09-29T16:54:24,checkout_start,
+cust_026,2026-09-29T16:55:12,payment_attempt,"{""method"": ""card""}"
+cust_026,2026-09-29T16:55:28,order_placed,"{""order_id"": ""O2""}"
+cust_049,2026-09-29T17:10:00,add_to_cart,"{""product_id"": ""P3"", ""cart_value"": 899}"
+cust_049,2026-09-29T17:10:57,checkout_start,
+cust_049,2026-09-29T17:11:26,shipping_shown,"{""shipping_cost"": 149, ""cart_value"": 899}"
+cust_049,2026-09-29T17:11:51,exit,
+cust_025,2026-09-29T17:29:00,product_view,"{""product_id"": ""P1""}"
+cust_025,2026-09-29T17:29:45,add_to_cart,"{""product_id"": ""P1"", ""cart_value"": 2499}"
+cust_025,2026-09-29T17:30:30,checkout_start,
+cust_025,2026-09-29T17:31:04,payment_failed,"{""method"": ""UPI"", ""reason"": ""bank_timeout""}"
+cust_025,2026-09-29T17:31:24,payment_failed,"{""method"": ""UPI"", ""reason"": ""bank_timeout""}"
+cust_025,2026-09-29T17:31:48,payment_failed,"{""method"": ""UPI"", ""reason"": ""bank_timeout""}"
+cust_025,2026-09-29T17:32:09,exit,
+cust_050,2026-09-29T18:25:00,compare_products,"{""product_id"": ""P4""}"
+cust_050,2026-09-29T18:25:27,compare_products,"{""product_id"": ""P5""}"
+cust_050,2026-09-29T18:25:47,product_view,"{""product_id"": ""P6""}"
+cust_050,2026-09-29T18:26:03,compare_products,"{""product_id"": ""P4""}"
+cust_050,2026-09-29T18:26:47,compare_products,"{""product_id"": ""P5""}"
+cust_050,2026-09-29T18:27:03,exit,
+cust_027,2026-09-29T19:23:00,product_view,"{""product_id"": ""P8""}"
+cust_027,2026-09-29T19:23:24,add_to_cart,"{""product_id"": ""P8"", ""cart_value"": 1200}"
+cust_027,2026-09-29T19:24:23,checkout_start,
+cust_027,2026-09-29T19:25:12,payment_attempt,"{""method"": ""card""}"
+cust_027,2026-09-29T19:25:28,order_placed,"{""order_id"": ""O2""}"
+cust_057,2026-09-29T21:26:00,product_view,"{""product_id"": ""P1""}"
+cust_057,2026-09-29T21:26:32,add_to_cart,"{""product_id"": ""P1"", ""cart_value"": 2499}"
+cust_057,2026-09-29T21:27:26,checkout_start,
+cust_057,2026-09-29T21:27:49,payment_failed,"{""method"": ""UPI"", ""reason"": ""bank_timeout""}"
+cust_057,2026-09-29T21:28:06,payment_failed,"{""method"": ""UPI"", ""reason"": ""bank_timeout""}"
+cust_057,2026-09-29T21:28:54,payment_failed,"{""method"": ""UPI"", ""reason"": ""bank_timeout""}"
+cust_057,2026-09-29T21:29:54,exit,
+cust_042,2026-09-29T21:30:00,product_view,"{""product_id"": ""P4""}"
+cust_042,2026-09-29T21:30:21,product_view,"{""product_id"": ""P5""}"
+cust_042,2026-09-29T21:30:39,compare_products,"{""product_id"": ""P6""}"
+cust_042,2026-09-29T21:31:11,compare_products,"{""product_id"": ""P4""}"
+cust_042,2026-09-29T21:31:32,product_view,"{""product_id"": ""P5""}"
+cust_042,2026-09-29T21:32:22,exit,
+cust_007,2026-09-29T22:03:00,add_to_cart,"{""product_id"": ""P2"", ""cart_value"": 5999}"
+cust_007,2026-09-29T22:03:54,checkout_start,
+cust_007,2026-09-29T22:04:22,delivery_check,"{""pincode"": ""560001"", ""dwell_seconds"": 45}"
+cust_007,2026-09-29T22:05:08,delivery_check,"{""pincode"": ""560001"", ""dwell_seconds"": 38}"
+cust_007,2026-09-29T22:06:06,exit,
+cust_054,2026-09-29T22:31:00,product_view,"{""product_id"": ""P8""}"
+cust_054,2026-09-29T22:31:59,add_to_cart,"{""product_id"": ""P8"", ""cart_value"": 1200}"
+cust_054,2026-09-29T22:32:34,checkout_start,
+cust_054,2026-09-29T22:32:54,payment_attempt,"{""method"": ""card""}"
+cust_054,2026-09-29T22:33:26,order_placed,"{""order_id"": ""O2""}"
+cust_012,2026-09-29T22:50:00,product_view,"{""product_id"": ""P8""}"
+cust_012,2026-09-29T22:50:35,add_to_cart,"{""product_id"": ""P8"", ""cart_value"": 1200}"
+cust_012,2026-09-29T22:51:11,checkout_start,
+cust_012,2026-09-29T22:52:10,payment_attempt,"{""method"": ""card""}"
+cust_012,2026-09-29T22:52:47,order_placed,"{""order_id"": ""O2""}"
+cust_001,2026-09-29T23:03:00,add_to_cart,"{""product_id"": ""P2"", ""cart_value"": 5999}"
+cust_001,2026-09-29T23:03:47,checkout_start,
+cust_001,2026-09-29T23:04:15,delivery_check,"{""pincode"": ""560001"", ""dwell_seconds"": 45}"
+cust_001,2026-09-29T23:04:32,delivery_check,"{""pincode"": ""560001"", ""dwell_seconds"": 38}"
+cust_001,2026-09-29T23:04:52,exit,
+cust_006,2026-09-29T23:36:00,product_view,"{""product_id"": ""P1""}"
+cust_006,2026-09-29T23:36:55,add_to_cart,"{""product_id"": ""P1"", ""cart_value"": 2499}"
+cust_006,2026-09-29T23:37:22,checkout_start,
+cust_006,2026-09-29T23:38:00,payment_failed,"{""method"": ""UPI"", ""reason"": ""bank_timeout""}"
+cust_006,2026-09-29T23:38:21,payment_failed,"{""method"": ""UPI"", ""reason"": ""bank_timeout""}"
+cust_006,2026-09-29T23:39:11,payment_failed,"{""method"": ""UPI"", ""reason"": ""bank_timeout""}"
+cust_006,2026-09-29T23:40:11,exit,
+cust_051,2026-09-30T01:18:00,add_to_cart,"{""product_id"": ""P3"", ""cart_value"": 899}"
+cust_051,2026-09-30T01:18:47,checkout_start,
+cust_051,2026-09-30T01:19:06,shipping_shown,"{""shipping_cost"": 149, ""cart_value"": 899}"
+cust_051,2026-09-30T01:19:28,exit,
+cust_033,2026-09-30T01:53:00,product_view,"{""product_id"": ""P8""}"
+cust_033,2026-09-30T01:53:15,add_to_cart,"{""product_id"": ""P8"", ""cart_value"": 1200}"
+cust_033,2026-09-30T01:54:00,checkout_start,
+cust_033,2026-09-30T01:54:56,payment_attempt,"{""method"": ""card""}"
+cust_033,2026-09-30T01:55:33,order_placed,"{""order_id"": ""O2""}"
+cust_024,2026-09-30T02:16:00,add_to_cart,"{""product_id"": ""P3"", ""cart_value"": 899}"
+cust_024,2026-09-30T02:16:37,checkout_start,
+cust_024,2026-09-30T02:17:30,shipping_shown,"{""shipping_cost"": 149, ""cart_value"": 899}"
+cust_024,2026-09-30T02:18:08,exit,
+cust_010,2026-10-01T14:08:28,support_ticket,"{""topic"": ""order delayed, no tracking update""}"
+cust_004,2026-10-01T18:19:05,support_ticket,"{""topic"": ""order delayed, no tracking update""}"
+DEMO-CUSTOMER-001,2026-09-30T08:24:21.809Z,product_view,{},
+DEMO-CUSTOMER-001,2026-09-30T08:24:21.850Z,product_view,{},
+DEMO-CUSTOMER-001,2026-09-30T08:24:21.878Z,product_view,{},
+DEMO-CUSTOMER-001,2026-09-30T08:24:29.972Z,product_view,{},
+DEMO-CUSTOMER-001,2026-09-30T08:24:29.993Z,product_view,{},
+DEMO-CUSTOMER-001,2026-09-30T08:24:30.028Z,product_view,{},
+DEMO-CUSTOMER-001,2026-09-30T08:24:30.187Z,product_view,{},
+DEMO-CUSTOMER-001,2026-09-30T08:24:30.361Z,product_view,{},
+DEMO-CUSTOMER-001,2026-09-30T08:24:30.573Z,product_view,{},
+DEMO-CUSTOMER-001,2026-09-30T08:24:33.134Z,checkout_start,{},
+DEMO-CUSTOMER-001,2026-09-30T08:24:33.926Z,payment_failed,{},
+DEMO-CUSTOMER-001,2026-09-30T08:24:34.304Z,payment_failed,{},
+DEMO-CUSTOMER-001,2026-09-30T08:24:34.647Z,payment_failed,{},
+DEMO-CUSTOMER-001,2026-09-30T08:24:38.516Z,exit,{},
+DEMO-CUSTOMER-001,2026-09-30T08:26:44.230Z,product_view,{},
+DEMO-CUSTOMER-001,2026-09-30T08:26:44.649Z,product_view,{},
+DEMO-CUSTOMER-001,2026-09-30T08:26:44.663Z,product_view,{},
+DEMO-CUSTOMER-001,2026-09-30T08:26:44.795Z,product_view,{},
+DEMO-CUSTOMER-001,2026-09-30T08:26:44.857Z,product_view,{},
+DEMO-CUSTOMER-001,2026-09-30T08:26:46.411Z,product_view,{},
+DEMO-CUSTOMER-001,2026-09-30T08:26:46.412Z,product_view,{},
+DEMO-CUSTOMER-001,2026-09-30T08:26:51.022Z,add_to_cart,{},
+DEMO-CUSTOMER-001,2026-09-30T08:27:34.974Z,checkout_start,{},
+DEMO-CUSTOMER-001,2026-09-30T08:27:35.786Z,payment_failed,{},
+DEMO-CUSTOMER-001,2026-09-30T08:27:35.949Z,payment_failed,{},
+DEMO-CUSTOMER-001,2026-09-30T08:27:36.755Z,payment_failed,{},
+DEMO-CUSTOMER-001,2026-09-30T08:27:36.906Z,payment_failed,{},
+DEMO-CUSTOMER-001,2026-09-30T08:27:37.036Z,payment_failed,{},
+DEMO-CUSTOMER-001,2026-09-30T08:27:42.564Z,exit,{},
+DEMO-CUSTOMER-001,2026-09-30T08:29:45.682Z,product_view,{},
+DEMO-CUSTOMER-001,2026-09-30T08:29:45.775Z,product_view,{},
+DEMO-CUSTOMER-001,2026-09-30T08:29:47.089Z,product_view,{},
+DEMO-CUSTOMER-001,2026-09-30T08:29:47.089Z,product_view,{},
+DEMO-CUSTOMER-001,2026-09-30T08:29:47.927Z,add_to_cart,{},
+DEMO-CUSTOMER-001,2026-09-30T08:29:49.793Z,checkout_start,{},
+DEMO-CUSTOMER-001,2026-09-30T08:29:50.574Z,payment_failed,{},
+DEMO-CUSTOMER-001,2026-09-30T08:29:51.378Z,payment_failed,{},
+DEMO-CUSTOMER-001,2026-09-30T08:29:52.271Z,exit,{},
+DEMO-CUSTOMER-001,2026-09-30T09:09:30.469Z,product_view,{},
+DEMO-CUSTOMER-001,2026-09-30T09:09:30.484Z,product_view,{},
+DEMO-CUSTOMER-001,2026-09-30T09:09:30.511Z,product_view,{},
+DEMO-CUSTOMER-001,2026-09-30T09:09:33.951Z,product_view,{},
+DEMO-CUSTOMER-001,2026-09-30T09:09:35.365Z,product_view,{},
+DEMO-CUSTOMER-001,2026-09-30T09:09:35.552Z,product_view,{},
+DEMO-CUSTOMER-001,2026-09-30T09:09:37.782Z,checkout_start,{},
+DEMO-CUSTOMER-001,2026-09-30T09:09:38.758Z,payment_failed,{},
+DEMO-CUSTOMER-001,2026-09-30T09:09:39.862Z,payment_failed,{},
+DEMO-CUSTOMER-001,2026-09-30T09:09:40.006Z,payment_failed,{},
+DEMO-CUSTOMER-001,2026-09-30T09:09:40.150Z,payment_failed,{},
+DEMO-CUSTOMER-001,2026-09-30T09:09:40.268Z,payment_failed,{},
+DEMO-CUSTOMER-001,2026-09-30T09:09:40.415Z,payment_failed,{},
+DEMO-CUSTOMER-001,2026-09-30T09:09:40.560Z,payment_failed,{},
+DEMO-CUSTOMER-001,2026-09-30T09:09:40.693Z,payment_failed,{},

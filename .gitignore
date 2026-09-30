@@ -1,0 +1,14 @@
+@"
+.venv/
+friction-backend backup/
+friction-backend.zip
+*.jpeg
+*.jpg
+*.png
+*.mp4
+node_modules/
+dist/
+__pycache__/
+*.pyc
+.env
+"@ | Set-Content .gitignore
